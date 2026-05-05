@@ -260,3 +260,12 @@ section:nth-of-type(4) input,
 section:nth-of-type(4) textarea {
   background-color: #fdf6f0;
 }
+
+
+@media (max-width: 768px) {
+  section:first-of-type {
+    background-size: cover;
+    background-position: right center;
+    min-height: 300px;
+  }
+}
