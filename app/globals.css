@@ -6,7 +6,7 @@
 
 body {
   font-family: Georgia, serif;
-  background-color: #fdf6f0;
+  background-color: #f5e6d3;
   color: #2c2c2c;
 }
 
@@ -43,23 +43,30 @@ nav ul li a {
 
 /* HERO */
 section:first-of-type {
+  background-image: url('/hero.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 650px;
+}
+
+section:nth-of-type(2) {
   text-align: center;
-  padding: 80px 20px;
+  padding: 60px 20px;
   background-color: #f5e6d3;
 }
 
-section:first-of-type h2 {
+section:nth-of-type(2) h2 {
   font-size: 2.5rem;
   margin-bottom: 15px;
 }
 
-section:first-of-type p {
+section:nth-of-type(2) p {
   font-size: 1.1rem;
   margin-bottom: 30px;
   color: #666;
 }
 
-section:first-of-type a {
+section:nth-of-type(2) a {
   background-color: #1a1a2e;
   color: white;
   padding: 12px 30px;
@@ -69,17 +76,17 @@ section:first-of-type a {
 }
 
 /* PRODUCTOS */
-section:nth-of-type(2) {
+section:nth-of-type(3) {
   padding: 60px 40px;
 }
 
-section:nth-of-type(2) h2 {
+section:nth-of-type(3) h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 40px;
 }
 
-section:nth-of-type(2) ul {
+section:nth-of-type(3) ul {
   list-style: none;
   display: flex;
   gap: 30px;
@@ -88,7 +95,7 @@ section:nth-of-type(2) ul {
 }
 
 article {
-  background: white;
+  background: #fdf6f0;
   padding: 30px;
   width: 280px;
   border-radius: 4px;
@@ -165,17 +172,17 @@ nav p {
 }
 
 /* CONTACTO */
-section:nth-of-type(3) {
+section:nth-of-type(4) {
   padding: 60px 40px;
   text-align: center;
 }
 
-section:nth-of-type(3) h2 {
+section:nth-of-type(4) h2 {
   font-size: 2rem;
   margin-bottom: 40px;
 }
 
-section:nth-of-type(3) form {
+section:nth-of-type(4) form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,8 +191,8 @@ section:nth-of-type(3) form {
   margin: 0 auto;
 }
 
-section:nth-of-type(3) input,
-section:nth-of-type(3) textarea {
+section:nth-of-type(4) input,
+section:nth-of-type(4) textarea {
   width: 100%;
   padding: 12px 15px;
   border: 1px solid #ccc;
@@ -195,12 +202,12 @@ section:nth-of-type(3) textarea {
   background-color: white;
 }
 
-section:nth-of-type(3) textarea {
+section:nth-of-type(4) textarea {
   height: 120px;
   resize: vertical;
 }
 
-section:nth-of-type(3) button {
+section:nth-of-type(4) button {
   background-color: #1a1a2e;
   color: white;
   border: none;
@@ -209,4 +216,47 @@ section:nth-of-type(3) button {
   border-radius: 2px;
   letter-spacing: 1px;
   width: 100%;
+}
+
+
+/* CATÁLOGO */
+.catalogo {
+  padding: 0 0 60px 0;
+}
+
+.catalogo h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.catalogo ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+article img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.catalogo h2 {
+  margin-top: 40px;
+}
+
+nav a, nav p a {
+  text-decoration: none;
+}
+
+
+section:nth-of-type(4) input,
+section:nth-of-type(4) textarea {
+  background-color: #fdf6f0;
 }

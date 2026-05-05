@@ -3,57 +3,62 @@
 import { useState } from "react"
 import ProductCard from "./components/ProductCard"
 import Navbar from "./components/Navbar"
+import { useCarrito } from "./components/CarritoContext"
 
 export default function Home() {
-  const [carrito, setCarrito] = useState(0)
+  const { agregarAlCarrito } = useCarrito()
   const [error, setError] = useState("")
   const [exito, setExito] = useState(false)
 
-  const agregarAlCarrito = () => {
-    setCarrito(carrito + 1)
-  }
+  
 
   return (
     <main>
-      <Navbar carrito={carrito} />
-
+      <Navbar />
+  
+      <section>
+      </section>
+  
       <section>
         <h2>Descubrí tu fragancia ideal</h2>
         <p>Perfumes únicos para momentos inolvidables.</p>
-        <a href="#">Ver catálogo</a>
+        <a href="/catalogo">Ver catálogo</a>
       </section>
 
       <section>
         <h2>Nuestros productos</h2>
         <ul>
         <li>
-  <ProductCard
-    nombre="Nuit Dorée"
-    descripcion="Una fragancia cálida con notas de vainilla y ámbar."
-    precio="$45.000"
-    onAgregar={agregarAlCarrito}
-  />
-</li>
-<li>
-  <ProductCard
-    nombre="Rosé Éternel"
-    descripcion="Floral y fresco, ideal para el día a día."
-    precio="$38.000"
-    onAgregar={agregarAlCarrito}
-  />
-</li>
-<li>
-  <ProductCard
-    nombre="Bois Mystère"
-    descripcion="Amaderado e intenso para las noches especiales."
-    precio="$52.000"
-    onAgregar={agregarAlCarrito}
-  />
-</li>
+    <ProductCard
+      nombre="Nuit Dorée"
+      descripcion="Una fragancia cálida con notas de vainilla y ámbar."
+      precio="$125.000"
+      imagen="/nuit-doree.png"
+      onAgregar={() => agregarAlCarrito({ id: 1, nombre: "Nuit Dorée", precio: "$125.000", imagen: "/nuit-doree.png" })}
+    />
+  </li>
+  <li>
+    <ProductCard
+      nombre="Rosé Éternel"
+      descripcion="Floral y fresco, ideal para el día a día."
+      precio="$98.000"
+      imagen="/rose-eternel.png"
+      onAgregar={() => agregarAlCarrito({ id: 2, nombre: "Rosé Éternel", precio: "$98.000", imagen: "/rose-eternel.png" })}
+    />
+  </li>
+  <li>
+    <ProductCard
+      nombre="Bois Mystère"
+      descripcion="Amaderado e intenso para las noches especiales."
+      precio="$145.000"
+      imagen="/bois-mystere.png"
+      onAgregar={() => agregarAlCarrito({ id: 3, nombre: "Bois Mystère", precio: "$145.000", imagen: "/bois-mystere.png" })}
+    />
+  </li>
         </ul>
       </section>
 
-      <section>
+      <section id="contacto">
         <h2>Contacto</h2>
         <form onSubmit={(e) => {
           e.preventDefault()
