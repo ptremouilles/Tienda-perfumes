@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import ProductCard from "./components/ProductCard"
+import Navbar from "./components/Navbar"
 
 export default function Home() {
   const [carrito, setCarrito] = useState(0)
@@ -13,18 +15,7 @@ export default function Home() {
 
   return (
     <main>
-      <header>
-        <nav>
-          <h1>Lumière Parfums</h1>
-          <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Catálogo</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Contacto</a></li>
-          </ul>
-          <p>🛒 {carrito}</p>
-        </nav>
-      </header>
+      <Navbar carrito={carrito} />
 
       <section>
         <h2>Descubrí tu fragancia ideal</h2>
@@ -35,30 +26,30 @@ export default function Home() {
       <section>
         <h2>Nuestros productos</h2>
         <ul>
-          <li>
-            <article>
-              <h3>Nuit Dorée</h3>
-              <p>Una fragancia cálida con notas de vainilla y ámbar.</p>
-              <p>$45.000</p>
-              <button onClick={agregarAlCarrito}>Agregar al carrito</button>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h3>Rosé Éternel</h3>
-              <p>Floral y fresco, ideal para el día a día.</p>
-              <p>$38.000</p>
-              <button onClick={agregarAlCarrito}>Agregar al carrito</button>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h3>Bois Mystère</h3>
-              <p>Amaderado e intenso para las noches especiales.</p>
-              <p>$52.000</p>
-              <button onClick={agregarAlCarrito}>Agregar al carrito</button>
-            </article>
-          </li>
+        <li>
+  <ProductCard
+    nombre="Nuit Dorée"
+    descripcion="Una fragancia cálida con notas de vainilla y ámbar."
+    precio="$45.000"
+    onAgregar={agregarAlCarrito}
+  />
+</li>
+<li>
+  <ProductCard
+    nombre="Rosé Éternel"
+    descripcion="Floral y fresco, ideal para el día a día."
+    precio="$38.000"
+    onAgregar={agregarAlCarrito}
+  />
+</li>
+<li>
+  <ProductCard
+    nombre="Bois Mystère"
+    descripcion="Amaderado e intenso para las noches especiales."
+    precio="$52.000"
+    onAgregar={agregarAlCarrito}
+  />
+</li>
         </ul>
       </section>
 
