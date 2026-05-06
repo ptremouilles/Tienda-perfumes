@@ -26,7 +26,7 @@ export default function Home() {
       </section>
 
       <section>
-        <h2>Nuestros productos</h2>
+        <h2>Nuestros productos destacados</h2>
         <ul>
         <li>
     <ProductCard
