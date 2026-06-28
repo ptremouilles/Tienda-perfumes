@@ -34,7 +34,7 @@ export default function Home() {
       descripcion="Una fragancia cálida con notas de vainilla y ámbar."
       precio="$125.000"
       imagen="/nuit-doree.png"
-      onAgregar={() => agregarAlCarrito({ id: 1, nombre: "Nuit Dorée", precio: "$125.000", imagen: "/nuit-doree.png" })}
+      onAgregar={() => agregarAlCarrito({ id: "1", nombre: "Nuit Dorée", precio: "$125.000", imagen: "/nuit-doree.png" })}
     />
   </li>
   <li>
@@ -43,7 +43,7 @@ export default function Home() {
       descripcion="Floral y fresco, ideal para el día a día."
       precio="$98.000"
       imagen="/rose-eternel.png"
-      onAgregar={() => agregarAlCarrito({ id: 2, nombre: "Rosé Éternel", precio: "$98.000", imagen: "/rose-eternel.png" })}
+      onAgregar={() => agregarAlCarrito({ id: "2", nombre: "Rosé Éternel", precio: "$98.000", imagen: "/rose-eternel.png" })}
     />
   </li>
   <li>
@@ -52,7 +52,7 @@ export default function Home() {
       descripcion="Amaderado e intenso para las noches especiales."
       precio="$145.000"
       imagen="/bois-mystere.png"
-      onAgregar={() => agregarAlCarrito({ id: 3, nombre: "Bois Mystère", precio: "$145.000", imagen: "/bois-mystere.png" })}
+      onAgregar={() => agregarAlCarrito({ id: "3", nombre: "Bois Mystère", precio: "$145.000", imagen: "/bois-mystere.png" })}
     />
   </li>
         </ul>
