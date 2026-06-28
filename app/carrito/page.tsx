@@ -3,14 +3,63 @@
 import { useCarrito } from "../components/CarritoContext"
 import Navbar from "../components/Navbar"
 import Link from "next/link"
+import { useEffect, useState } from "react"
+import { supabase } from "../lib/supabase"
+import { useRouter } from "next/navigation"
 
 export default function Carrito() {
   const { carrito, quitarDelCarrito, modificarCantidad, vaciarCarrito } = useCarrito()
+  const [verificando, setVerificando] = useState(true)
+  const [procesando, setProcesando] = useState(false)
+  const [usuario, setUsuario] = useState<any>(null)
+  const router = useRouter()
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        router.push("/login")
+      } else {
+        setUsuario(session.user)
+        setVerificando(false)
+      }
+    })
+  }, [])
+
+
+  const handleFinalizarCompra = async () => {
+    if (carrito.length === 0) return
+    setProcesando(true)
+  
+    const response = await fetch("/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        items: carrito,
+        total,
+        userEmail: usuario.email
+      })
+    })
+  
+    const data = await response.json()
+  
+    if (data.success) {
+      vaciarCarrito()
+      router.push("/confirmacion")
+    } else {
+      alert("Error al procesar la compra. Intentá de nuevo.")
+    }
+  
+    setProcesando(false)
+  }
 
   const total = carrito.length > 0 ? carrito.reduce((acc, p) => {
     const precio = parseInt(p.precio?.replace(/[$\.]/g, "") ?? "0")
     return acc + precio * p.cantidad
   }, 0) : 0
+
+  if (verificando) {
+    return <main><Navbar /><p style={{ textAlign: "center", marginTop: "100px" }}>Verificando sesión...</p></main>
+  }
 
   return (
     <main>
@@ -45,10 +94,13 @@ export default function Carrito() {
             </p>
             <div style={{ display: "flex", gap: "15px", marginTop: "20px", justifyContent: "flex-end" }}>
               <button onClick={vaciarCarrito} style={{ background: "#1a1a2e", color: "white", border: "none", padding: "12px 30px", cursor: "pointer", borderRadius: "2px", letterSpacing: "1px" }}>
-              Vaciar carrito
-            </button>
-              <button style={{ background: "#1a1a2e", color: "white", border: "none", padding: "12px 30px", cursor: "pointer", borderRadius: "2px", letterSpacing: "1px" }}>
-                Finalizar compra
+                Vaciar carrito
+              </button>
+              <button 
+                onClick={handleFinalizarCompra}
+                disabled={procesando}
+                style={{ background: "#1a1a2e", color: "white", border: "none", padding: "12px 30px", cursor: "pointer", borderRadius: "2px", letterSpacing: "1px" }}>
+                {procesando ? "Procesando..." : "Finalizar compra"}
               </button>
             </div>
           </>
