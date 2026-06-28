@@ -3,7 +3,7 @@
 import { createContext, useContext, useState } from "react"
 
 type Producto = {
-  id: number
+  id: string
   nombre: string
   precio: string
   imagen: string
@@ -13,8 +13,8 @@ type Producto = {
 type CarritoContextType = {
   carrito: Producto[]
   agregarAlCarrito: (producto: Omit<Producto, "cantidad">) => void
-  quitarDelCarrito: (id: number) => void
-  modificarCantidad: (id: number, cantidad: number) => void
+  quitarDelCarrito: (id: string) => void
+  modificarCantidad: (id: string, cantidad: number) => void
   vaciarCarrito: () => void
   totalItems: number
 }
@@ -34,14 +34,15 @@ export function CarritoProvider({ children }: { children: React.ReactNode }) {
     })
   }
 
-  const quitarDelCarrito = (id: number) => {
+  const quitarDelCarrito = (id: string) => {
     setCarrito((prev) => prev.filter((p) => p.id !== id))
   }
+
   const vaciarCarrito = () => {
     setCarrito([])
   }
 
-  const modificarCantidad = (id: number, cantidad: number) => {
+  const modificarCantidad = (id: string, cantidad: number) => {
     setCarrito((prev) =>
       prev.map((p) => p.id === id ? { ...p, cantidad: Math.max(1, p.cantidad + cantidad) } : p)
     )
