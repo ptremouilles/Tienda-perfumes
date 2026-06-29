@@ -370,6 +370,7 @@ nav a, nav p a {
     gap: 10px;
     text-align: center;
     padding: 10px 0;
+    justify-content: center;
   }
 
   nav ul {
