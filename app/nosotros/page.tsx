@@ -56,7 +56,7 @@ export default function Nosotros() {
                 Hoy, más de una década después, Lumière Parfums es una marca reconocida en toda América Latina. Mantenemos la misma filosofía del origen: ingredientes naturales, fórmulas artesanales y una historia detrás de cada frasco.
               </p>
             </div>
-            <div style={{ marginTop: "-30px" }}>
+            <div>
               <img src="/nosotros2.png" alt="Taller original de Lumière Parfums en Palermo" style={{ width: "100%", borderRadius: "12px", boxShadow: "0 4px 20px rgba(0,0,0,0.1)" }} />
             </div>
           </div>
