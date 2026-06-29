@@ -36,10 +36,10 @@ export default function Home() {
   return (
     <main>
       <Navbar />
-  
+
       <section className="hero-section" style={{ backgroundImage: "url('/hero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
       </section>
-  
+
       <section>
         <h2>Descubrí tu fragancia ideal</h2>
         <p>Perfumes únicos para momentos inolvidables.</p>
@@ -77,6 +77,35 @@ export default function Home() {
             />
           </li>
         </ul>
+      </section>
+
+      <section style={{ padding: "60px 40px", background: "#1a1a2e", color: "#f5e6d3", textAlign: "center" }}>
+        <h2 style={{ fontSize: "2rem", marginBottom: "16px", fontFamily: "Georgia, serif" }}>Nuestra historia</h2>
+        <p style={{ fontSize: "1.1rem", color: "#b8a99a", maxWidth: "600px", margin: "0 auto 30px", lineHeight: "1.8" }}>
+          Desde 2010 creamos fragancias artesanales en Palermo, Buenos Aires. Cada perfume nace de una historia real y de ingredientes naturales seleccionados con cuidado.
+        </p>
+        <a href="/nosotros" style={{ background: "#f5e6d3", color: "#1a1a2e", padding: "12px 30px", textDecoration: "none", borderRadius: "2px", letterSpacing: "1px", fontWeight: "bold" }}>Conocenos</a>
+      </section>
+
+      <section style={{ padding: "60px 40px", background: "#fdf6f0" }}>
+        <h2 style={{ textAlign: "center", fontSize: "2rem", marginBottom: "40px" }}>Lo que dicen nuestros clientes</h2>
+        <div style={{ display: "flex", gap: "30px", justifyContent: "center", flexWrap: "wrap" }}>
+          <div style={{ background: "white", padding: "30px", borderRadius: "12px", maxWidth: "300px", boxShadow: "0 2px 10px rgba(0,0,0,0.08)" }}>
+            <p style={{ color: "#f5a623", fontSize: "1.2rem", marginBottom: "10px" }}>★★★★★</p>
+            <p style={{ color: "#555", lineHeight: "1.7", marginBottom: "16px", fontStyle: "italic" }}>"Nuit Dorée es simplemente perfecta. La uso todos los días y recibo cumplidos constantemente. Una fragancia elegante y duradera."</p>
+            <p style={{ fontWeight: "bold", color: "#1a1a2e" }}>— Valentina R.</p>
+          </div>
+          <div style={{ background: "white", padding: "30px", borderRadius: "12px", maxWidth: "300px", boxShadow: "0 2px 10px rgba(0,0,0,0.08)" }}>
+            <p style={{ color: "#f5a623", fontSize: "1.2rem", marginBottom: "10px" }}>★★★★★</p>
+            <p style={{ color: "#555", lineHeight: "1.7", marginBottom: "16px", fontStyle: "italic" }}>"Compré Rosé Éternel como regalo y mi mamá quedó encantada. El packaging es hermoso y el aroma es suave y floral. ¡Lo recomiendo!"</p>
+            <p style={{ fontWeight: "bold", color: "#1a1a2e" }}>— Camila T.</p>
+          </div>
+          <div style={{ background: "white", padding: "30px", borderRadius: "12px", maxWidth: "300px", boxShadow: "0 2px 10px rgba(0,0,0,0.08)" }}>
+            <p style={{ color: "#f5a623", fontSize: "1.2rem", marginBottom: "10px" }}>★★★★☆</p>
+            <p style={{ color: "#555", lineHeight: "1.7", marginBottom: "16px", fontStyle: "italic" }}>"Bois Mystère tiene una personalidad única. Es intenso pero sofisticado, ideal para las noches. Llegó rápido y muy bien empacado."</p>
+            <p style={{ fontWeight: "bold", color: "#1a1a2e" }}>— Martín L.</p>
+          </div>
+        </div>
       </section>
 
       <section id="contacto">

@@ -14,6 +14,9 @@ body {
 header {
   background-color: #1a1a2e;
   padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 nav {
@@ -137,17 +140,18 @@ nav p {
 }
 
 /* CONTACTO */
-section:nth-of-type(4) {
+/* CONTACTO */
+#contacto {
   padding: 60px 40px;
   text-align: center;
 }
 
-section:nth-of-type(4) h2 {
+#contacto h2 {
   font-size: 2rem;
   margin-bottom: 40px;
 }
 
-section:nth-of-type(4) form {
+#contacto form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,8 +160,8 @@ section:nth-of-type(4) form {
   margin: 0 auto;
 }
 
-section:nth-of-type(4) input,
-section:nth-of-type(4) textarea {
+#contacto input,
+#contacto textarea {
   width: 100%;
   padding: 12px 15px;
   border: 1px solid #ccc;
@@ -167,12 +171,12 @@ section:nth-of-type(4) textarea {
   background-color: #fdf6f0;
 }
 
-section:nth-of-type(4) textarea {
+#contacto textarea {
   height: 120px;
   resize: vertical;
 }
 
-section:nth-of-type(4) button {
+#contacto button {
   background-color: #1a1a2e;
   color: white;
   border: none;
