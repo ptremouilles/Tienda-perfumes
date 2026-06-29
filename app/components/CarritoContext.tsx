@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
 type Producto = {
   id: string
@@ -24,6 +24,17 @@ const CarritoContext = createContext<CarritoContextType | null>(null)
 export function CarritoProvider({ children }: { children: React.ReactNode }) {
   const [carrito, setCarrito] = useState<Producto[]>([])
 
+  useEffect(() => {
+    const guardado = localStorage.getItem("carrito")
+    if (guardado) {
+      setCarrito(JSON.parse(guardado))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+  }, [carrito])
+
   const agregarAlCarrito = (producto: Omit<Producto, "cantidad">) => {
     setCarrito((prev) => {
       const existe = prev.find((p) => p.id === producto.id)
@@ -40,6 +51,7 @@ export function CarritoProvider({ children }: { children: React.ReactNode }) {
 
   const vaciarCarrito = () => {
     setCarrito([])
+    localStorage.removeItem("carrito")
   }
 
   const modificarCantidad = (id: string, cantidad: number) => {
