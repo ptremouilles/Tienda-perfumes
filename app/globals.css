@@ -377,6 +377,7 @@ nav a, nav p a {
     gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
   }
 
   .nav-auth {
