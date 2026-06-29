@@ -37,7 +37,7 @@ export default function Home() {
     <main>
       <Navbar />
   
-      <section className="hero-section" style={{ backgroundImage: "url('/hero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="hero-section" style={{ backgroundImage: "url('/hero.png')", backgroundSize: "cover", backgroundPosition: "center", minHeight: "300px" }}>
       </section>
   
       <section>

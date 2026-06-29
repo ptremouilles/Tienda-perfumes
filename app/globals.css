@@ -48,12 +48,6 @@ nav ul li a {
   background-position: center;
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 300px;
-  }
-}
-
 section:nth-of-type(2) {
   text-align: center;
   padding: 60px 20px;
@@ -131,46 +125,6 @@ article button {
   width: 100%;
 }
 
-
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-    padding: 10px 0;
-  }
-
-  nav ul {
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav-auth {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .nav-email {
-    display: none;
-  }
-
-  section:first-of-type h2 {
-    font-size: 1.8rem;
-  }
-
-  section:last-of-type ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  article {
-    width: 100%;
-    max-width: 320px;
-  }
-}
-
 nav p {
   color: #f5e6d3;
   font-size: 1rem;
@@ -210,7 +164,7 @@ section:nth-of-type(4) textarea {
   border-radius: 2px;
   font-family: Georgia, serif;
   font-size: 0.95rem;
-  background-color: white;
+  background-color: #fdf6f0;
 }
 
 section:nth-of-type(4) textarea {
@@ -228,7 +182,6 @@ section:nth-of-type(4) button {
   letter-spacing: 1px;
   width: 100%;
 }
-
 
 /* CATÁLOGO */
 .catalogo {
@@ -258,27 +211,8 @@ article img {
   margin-bottom: 15px;
 }
 
-.catalogo h2 {
-  margin-top: 40px;
-}
-
 nav a, nav p a {
   text-decoration: none;
-}
-
-
-section:nth-of-type(4) input,
-section:nth-of-type(4) textarea {
-  background-color: #fdf6f0;
-}
-
-
-@media (max-width: 768px) {
-  section:first-of-type {
-    background-image: none;
-    background-color: #f5e6d3;
-    min-height: 0;
-  }
 }
 
 /* Auth pages */
@@ -425,7 +359,44 @@ section:nth-of-type(4) textarea {
   transform: translateY(0);
 }
 
+/* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  nav ul {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-auth {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-email {
+    display: none;
+  }
+
+  .hero-section {
+    min-height: 300px;
+  }
+
+  article {
+    width: 100%;
+    max-width: 320px;
+  }
+
   .historia-grid {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
