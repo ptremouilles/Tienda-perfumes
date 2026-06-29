@@ -123,14 +123,7 @@ article button {
   width: 100%;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  background-color: #1a1a2e;
-  color: #f5e6d3;
-  font-size: 0.85rem;
-}
+
 @media (max-width: 768px) {
   nav {
     flex-direction: column;

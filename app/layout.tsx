@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { CarritoProvider } from "./components/CarritoContext"
+import Footer from "./components/Footer"
 
 export const metadata: Metadata = {
   title: "Lumière Parfums",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <CarritoProvider>
           {children}
+          <Footer />
         </CarritoProvider>
       </body>
     </html>
