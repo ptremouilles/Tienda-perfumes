@@ -41,17 +41,25 @@ export default function Catalogo() {
   useEffect(() => {
     if (cargando || !listRef.current) return
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible")
+          }
+        })
+      },
+      { threshold: 0.05 }
+    )
+
     const items = listRef.current.querySelectorAll("li")
     items.forEach((item, index) => {
-      (item as HTMLElement).style.opacity = "0"
-      ;(item as HTMLElement).style.transform = "translateY(30px)"
-      ;(item as HTMLElement).style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`
-      
-      setTimeout(() => {
-        (item as HTMLElement).style.opacity = "1"
-        ;(item as HTMLElement).style.transform = "translateY(0)"
-      }, 50)
+      (item as HTMLElement).style.transitionDelay = `${index * 0.1}s`
+      item.classList.add("fade-in")
+      observer.observe(item)
     })
+
+    return () => observer.disconnect()
   }, [cargando])
 
   if (cargando) {
