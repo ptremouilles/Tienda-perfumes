@@ -25,11 +25,15 @@ export default function Carrito() {
     })
   }, [])
 
+  const total = carrito.length > 0 ? carrito.reduce((acc, p) => {
+    const precio = parseInt(p.precio?.replace(/[$\.]/g, "") ?? "0")
+    return acc + precio * p.cantidad
+  }, 0) : 0
 
   const handleFinalizarCompra = async () => {
     if (carrito.length === 0) return
     setProcesando(true)
-  
+
     const response = await fetch("/api/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -39,23 +43,31 @@ export default function Carrito() {
         userEmail: usuario.email
       })
     })
-  
-    const data = await response.json()
-  
-    if (data.success) {
-      vaciarCarrito()
-      router.push("/confirmacion")
-    } else {
-      alert("Error al procesar la compra. Intentá de nuevo.")
-    }
-  
-    setProcesando(false)
-  }
 
-  const total = carrito.length > 0 ? carrito.reduce((acc, p) => {
-    const precio = parseInt(p.precio?.replace(/[$\.]/g, "") ?? "0")
-    return acc + precio * p.cantidad
-  }, 0) : 0
+    const orderData = await response.json()
+
+    if (!orderData.success) {
+      alert("Error al crear la orden. Intentá de nuevo.")
+      setProcesando(false)
+      return
+    }
+
+    const mpResponse = await fetch("/api/pagos/crear-preferencia", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ order_id: orderData.orderId })
+    })
+
+    const mpData = await mpResponse.json()
+
+    if (mpData.init_point) {
+      vaciarCarrito()
+      window.location.href = mpData.init_point
+    } else {
+      alert("Error al conectar con Mercado Pago. Intentá de nuevo.")
+      setProcesando(false)
+    }
+  }
 
   if (verificando) {
     return <main><Navbar /><p style={{ textAlign: "center", marginTop: "100px" }}>Verificando sesión...</p></main>
@@ -96,7 +108,7 @@ export default function Carrito() {
               <button onClick={vaciarCarrito} style={{ background: "#1a1a2e", color: "white", border: "none", padding: "12px 30px", cursor: "pointer", borderRadius: "2px", letterSpacing: "1px" }}>
                 Vaciar carrito
               </button>
-              <button 
+              <button
                 onClick={handleFinalizarCompra}
                 disabled={procesando}
                 style={{ background: "#1a1a2e", color: "white", border: "none", padding: "12px 30px", cursor: "pointer", borderRadius: "2px", letterSpacing: "1px" }}>
