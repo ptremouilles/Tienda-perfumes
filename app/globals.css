@@ -389,7 +389,8 @@ nav a, nav p a {
   }
 
   .hero-section {
-    min-height: 300px;
+    min-height: 250px;
+    background-position: center center;
   }
 
   article {
