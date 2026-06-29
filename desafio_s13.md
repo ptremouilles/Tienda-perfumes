@@ -37,9 +37,9 @@ Se usó una cuenta Buyer Test User de Mercado Pago en modo sandbox.
 
 | Escenario | Titular | Resultado |
 |-----------|---------|-----------|
-| Pago aprobado | APRO | Redirige a /pago-completado ✅ |
-| Pago rechazado | OTHE | Pantalla de error en Mercado Pago |
-| Pago pendiente | CONT | Pantalla de pendiente en Mercado Pago |
+| Pago aprobado | APRO | Redirige automáticamente a /pago-completado ✅ |
+| Pago rechazado | OTHE | Botón "Volver al sitio" → /pago-fallido ✅ |
+| Pago pendiente | CONT | Botón "Ok, entendido" → /pago-pendiente ✅ |
 
 
 
@@ -47,8 +47,9 @@ Se usó una cuenta Buyer Test User de Mercado Pago en modo sandbox.
 
 Para probar el checkout en sandbox usar la siguiente cuenta de Mercado Pago:
 
-- Usuario: TESTUSER8714... (ver panel de developers)
+- Usuario: TESTUSER871432491423755898
 - Contraseña: 4cRS7u6hoS
+- Código de verificación: 787956
 
 ## Tarjetas de prueba
 
