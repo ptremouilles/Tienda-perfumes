@@ -17,12 +17,15 @@ type CarritoContextType = {
   modificarCantidad: (id: string, cantidad: number) => void
   vaciarCarrito: () => void
   totalItems: number
+  carritoAbierto: boolean
+  setCarritoAbierto: (abierto: boolean) => void
 }
 
 const CarritoContext = createContext<CarritoContextType | null>(null)
 
 export function CarritoProvider({ children }: { children: React.ReactNode }) {
   const [carrito, setCarrito] = useState<Producto[]>([])
+  const [carritoAbierto, setCarritoAbierto] = useState(false)
 
   useEffect(() => {
     const guardado = localStorage.getItem("carrito")
@@ -43,6 +46,7 @@ export function CarritoProvider({ children }: { children: React.ReactNode }) {
       }
       return [...prev, { ...producto, cantidad: 1 }]
     })
+    setCarritoAbierto(true)
   }
 
   const quitarDelCarrito = (id: string) => {
@@ -63,7 +67,7 @@ export function CarritoProvider({ children }: { children: React.ReactNode }) {
   const totalItems = carrito.reduce((acc, p) => acc + p.cantidad, 0)
 
   return (
-    <CarritoContext.Provider value={{ carrito, agregarAlCarrito, quitarDelCarrito, modificarCantidad, vaciarCarrito, totalItems }}>
+    <CarritoContext.Provider value={{ carrito, agregarAlCarrito, quitarDelCarrito, modificarCantidad, vaciarCarrito, totalItems, carritoAbierto, setCarritoAbierto }}>
       {children}
     </CarritoContext.Provider>
   )
