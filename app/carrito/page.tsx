@@ -61,8 +61,8 @@ export default function Carrito() {
     const mpData = await mpResponse.json()
 
     if (mpData.init_point) {
-      vaciarCarrito()
       window.location.href = mpData.init_point
+      vaciarCarrito()
     } else {
       alert("Error al conectar con Mercado Pago. Intentá de nuevo.")
       setProcesando(false)
