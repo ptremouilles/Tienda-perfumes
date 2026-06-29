@@ -42,10 +42,7 @@ nav ul li a {
 }
 
 /* HERO */
-section:first-of-type {
-  background-image: url('/hero.png');
-  background-size: cover;
-  background-position: center;
+.hero-section {
   min-height: 650px;
 }
 
@@ -389,3 +386,39 @@ section:nth-of-type(4) textarea {
   cursor: pointer;
   font-size: 0.9rem;
 }
+
+/* Animación fade-in scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación catálogo */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.catalogo > ul > li {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.catalogo ul li:nth-child(1) { animation-delay: 0.1s; }
+.catalogo ul li:nth-child(2) { animation-delay: 0.2s; }
+.catalogo ul li:nth-child(3) { animation-delay: 0.3s; }
+.catalogo ul li:nth-child(4) { animation-delay: 0.4s; }
+.catalogo ul li:nth-child(5) { animation-delay: 0.5s; }
+.catalogo ul li:nth-child(6) { animation-delay: 0.6s; }

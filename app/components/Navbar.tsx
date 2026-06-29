@@ -35,7 +35,7 @@ export default function Navbar() {
         <ul>
           <li><Link href="/">Inicio</Link></li>
           <li><Link href="/catalogo">Catálogo</Link></li>
-          <li><a href="#">Nosotros</a></li>
+          <li><Link href="/nosotros">Nosotros</Link></li>
           <li><Link href="/#contacto">Contacto</Link></li>
         </ul>
         <div className="nav-auth">
