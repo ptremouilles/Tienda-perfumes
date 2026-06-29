@@ -36,15 +36,15 @@ export default function Nosotros() {
           Desde 2010, creando fragancias que despiertan emociones y evocan recuerdos únicos.
         </p>
         <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 20px" }}>
-          <img src="/nosotros.png" alt="Taller Lumière Parfums" style={{ width: "100%", borderRadius: "12px 12px 0 0", boxShadow: "0 8px 30px rgba(0,0,0,0.3)", display: "block" }} />
+          <img src="/nosotros.png" alt="Taller Lumière Parfums" loading="eager" style={{ width: "100%", borderRadius: "12px 12px 0 0", boxShadow: "0 8px 30px rgba(0,0,0,0.3)", display: "block" }} />
         </div>
       </section>
 
       <div ref={sectionsRef}>
         {/* Historia */}
-        <section className="fade-in" style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 20px 40px 60px" }}>
+        <section className="fade-in" style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 20px 40px" }}>
           <h2 style={{ fontSize: "2rem", color: "#1a1a2e", marginBottom: "30px", fontFamily: "Georgia, serif" }}>Cómo nació Lumière Parfums</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 550px", gap: "50px", alignItems: "center" }}>
+          <div className="historia-grid" style={{ display: "grid", gridTemplateColumns: "1fr 550px", gap: "50px", alignItems: "center" }}>
             <div style={{ textAlign: "left" }}>
               <p style={{ color: "#555", lineHeight: "1.9", fontSize: "1.05rem", marginBottom: "20px" }}>
                 Todo comenzó en un pequeño taller en el barrio de Palermo, Buenos Aires. Marie Dubois, una joven química francesa que llegó a Argentina enamorada del país, descubrió que los aromas locales — el jazmín de los patios porteños, la madera del delta del Tigre, la vainilla del norte — tenían una personalidad única que no se encontraba en ninguna fragancia del mercado.
@@ -56,7 +56,7 @@ export default function Nosotros() {
                 Hoy, más de una década después, Lumière Parfums es una marca reconocida en toda América Latina. Mantenemos la misma filosofía del origen: ingredientes naturales, fórmulas artesanales y una historia detrás de cada frasco.
               </p>
             </div>
-            <div style={{ marginTop: "-30px", marginLeft: "20px" }}>
+            <div style={{ marginTop: "-30px" }}>
               <img src="/nosotros2.png" alt="Taller original de Lumière Parfums en Palermo" style={{ width: "100%", borderRadius: "12px", boxShadow: "0 4px 20px rgba(0,0,0,0.1)" }} />
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function Nosotros() {
         <section className="fade-in" style={{ background: "#fdf6f0", padding: "60px 20px" }}>
           <div style={{ maxWidth: "900px", margin: "0 auto" }}>
             <h2 style={{ fontSize: "2rem", color: "#1a1a2e", marginBottom: "40px", textAlign: "center", fontFamily: "Georgia, serif" }}>Nuestros valores</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "30px" }}>
+            <div className="valores-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "30px" }}>
               <div style={{ textAlign: "center", padding: "30px 20px" }}>
                 <Leaf size={40} color="#1a1a2e" style={{ margin: "0 auto 12px" }} />
                 <h3 style={{ color: "#1a1a2e", marginBottom: "10px" }}>Natural</h3>
@@ -89,7 +89,7 @@ export default function Nosotros() {
         {/* Equipo */}
         <section className="fade-in" style={{ maxWidth: "900px", margin: "0 auto", padding: "60px 20px" }}>
           <h2 style={{ fontSize: "2rem", color: "#1a1a2e", marginBottom: "40px", textAlign: "center", fontFamily: "Georgia, serif" }}>El equipo</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "30px" }}>
+          <div className="equipo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "30px" }}>
             <div style={{ textAlign: "center" }}>
               <div style={{ width: "100px", height: "100px", borderRadius: "50%", background: "#1a1a2e", margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <User size={40} color="#f5e6d3" />

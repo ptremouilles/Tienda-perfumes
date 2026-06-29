@@ -403,3 +403,18 @@ section:nth-of-type(4) textarea {
   opacity: 1;
   transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+  .historia-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .valores-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .equipo-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}

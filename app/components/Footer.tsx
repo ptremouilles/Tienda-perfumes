@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
       <footer style={{ background: "#1a1a2e", color: "#f5e6d3", padding: "60px 40px 20px" }}>
-        <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "40px", marginBottom: "40px" }}>
+        <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "40px", marginBottom: "40px" }}>
           <div>
             <h3 style={{ fontSize: "1.5rem", marginBottom: "12px", color: "#f5e6d3" }}>Lumière Parfums</h3>
             <p style={{ color: "#b8a99a", lineHeight: "1.7" }}>Fragancias únicas para momentos inolvidables. Cada perfume cuenta una historia.</p>
