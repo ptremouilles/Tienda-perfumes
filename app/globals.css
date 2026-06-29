@@ -44,6 +44,14 @@ nav ul li a {
 /* HERO */
 .hero-section {
   min-height: 650px;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 300px;
+  }
 }
 
 section:nth-of-type(2) {
@@ -127,12 +135,25 @@ article button {
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     text-align: center;
+    padding: 10px 0;
   }
 
   nav ul {
-    gap: 15px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-auth {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-email {
+    display: none;
   }
 
   section:first-of-type h2 {
