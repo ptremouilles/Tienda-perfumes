@@ -40,3 +40,22 @@ Se usó una cuenta Buyer Test User de Mercado Pago en modo sandbox.
 | Pago aprobado | APRO | Redirige a /pago-completado ✅ |
 | Pago rechazado | OTHE | Pantalla de error en Mercado Pago |
 | Pago pendiente | CONT | Pantalla de pendiente en Mercado Pago |
+
+
+
+## Cuenta de prueba para testing
+
+Para probar el checkout en sandbox usar la siguiente cuenta de Mercado Pago:
+
+- Usuario: TESTUSER8714... (ver panel de developers)
+- Contraseña: 4cRS7u6hoS
+
+## Tarjetas de prueba
+
+| Tarjeta | Número | Vencimiento | CVV | Titular | Resultado |
+|---------|--------|-------------|-----|---------|-----------|
+| Mastercard | 5031 7557 3453 0604 | 11/30 | 123 | APRO | Pago aprobado |
+| Mastercard | 5031 7557 3453 0604 | 11/30 | 123 | OTHE | Pago rechazado |
+| Mastercard | 5031 7557 3453 0604 | 11/30 | 123 | CONT | Pago pendiente |
+
+DNI para pagos aprobados y rechazados: 12345678

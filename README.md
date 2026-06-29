@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lumière Parfums
 
-## Getting Started
+E-commerce de perfumes artesanales desarrollado con Next.js, React, TypeScript y Supabase.
 
-First, run the development server:
+Demo en vivo: https://tienda-perfumes-zeta.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Descripción
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Lumière Parfums es una tienda online de fragancias artesanales que permite a los usuarios explorar el catálogo, registrarse, agregar productos al carrito y realizar compras a través de Mercado Pago.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologías
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Frontend: Next.js 15, React, TypeScript
+- Base de datos: Supabase (PostgreSQL)
+- Autenticación: Supabase Auth
+- Pagos: Mercado Pago Checkout Pro (sandbox)
+- Deploy: Vercel + GitHub CI/CD
+- Estilos: CSS puro con variables
 
-## Learn More
+## Funcionalidades
 
-To learn more about Next.js, take a look at the following resources:
+- Catálogo de productos cargado desde Supabase
+- Registro e inicio de sesión de usuarios
+- Carrito persistente con localStorage
+- Órdenes guardadas en base de datos
+- Panel de administración de órdenes y productos
+- Checkout con Mercado Pago sandbox
+- Páginas de resultado: pago completado, fallido y pendiente
+- Animaciones fade-in con IntersectionObserver
+- Diseño responsive
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Instalación local
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clonar el repositorio
+2. Instalar dependencias con npm install
+3. Crear archivo .env.local con las variables de entorno
+4. Correr con npm run dev
 
-## Deploy on Vercel
+## Variables de entorno necesarias
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+MERCADOPAGO_ACCESS_TOKEN
+NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY
+NEXT_PUBLIC_APP_URL
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Base de datos
+
+Tablas en Supabase:
+- products: catálogo de perfumes
+- orders: órdenes de compra
+- order_items: items de cada orden
+
+## Deploy
+
+El proyecto usa CI/CD con GitHub y Vercel. Cada push a main genera un deploy automático en producción.
