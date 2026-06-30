@@ -59,9 +59,10 @@ export function CarritoProvider({ children }: { children: React.ReactNode }) {
   }
 
   const modificarCantidad = (id: string, cantidad: number) => {
-    setCarrito((prev) =>
-      prev.map((p) => p.id === id ? { ...p, cantidad: Math.max(1, p.cantidad + cantidad) } : p)
-    )
+    setCarrito((prev) => {
+      const actualizado = prev.map((p) => p.id === id ? { ...p, cantidad: p.cantidad + cantidad } : p)
+      return actualizado.filter((p) => p.cantidad > 0)
+    })
   }
 
   const totalItems = carrito.reduce((acc, p) => acc + p.cantidad, 0)
