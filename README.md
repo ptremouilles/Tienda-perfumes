@@ -6,7 +6,7 @@ Demo en vivo: https://tienda-perfumes-zeta.vercel.app
 
 ## Descripción
 
-Lumière Parfums es una tienda online de fragancias artesanales que permite a los usuarios explorar el catálogo, registrarse, agregar productos al carrito y realizar compras a través de Mercado Pago.
+Lumière Parfums es una tienda online de fragancias artesanales que permite a los usuarios explorar el catálogo, registrarse, agregar productos al carrito y realizar compras a través de Mercado Pago. Cuenta con un sistema de roles que distingue entre usuarios clientes y administrador.
 
 ## Tecnologías
 
@@ -21,13 +21,24 @@ Lumière Parfums es una tienda online de fragancias artesanales que permite a lo
 
 - Catálogo de productos cargado desde Supabase
 - Registro e inicio de sesión de usuarios
-- Carrito persistente con localStorage
+- Carrito lateral deslizable con persistencia en localStorage
 - Órdenes guardadas en base de datos
-- Panel de administración de órdenes y productos
+- Página de "Mis órdenes" donde cada usuario ve su historial de compras
+- Sistema de roles (cliente / administrador)
+- Panel de administración exclusivo para el rol admin, con:
+  - Visualización de todas las órdenes
+  - CRUD completo de productos (crear, editar, eliminar)
 - Checkout con Mercado Pago sandbox
 - Páginas de resultado: pago completado, fallido y pendiente
 - Animaciones fade-in con IntersectionObserver
+- Navbar fijo (sticky) al hacer scroll
+- Sección de reseñas de clientes
 - Diseño responsive
+
+## Roles de usuario
+
+- Cliente: cualquier usuario registrado. Puede comprar y ver su propio historial de órdenes en /ordenes.
+- Administrador: usuario con rol "admin" en la tabla user_roles de Supabase. Accede al panel /admin (visible solo para este rol en la navbar) donde puede ver todas las órdenes y gestionar el catálogo de productos.
 
 ## Instalación local
 
@@ -50,6 +61,7 @@ Tablas en Supabase:
 - products: catálogo de perfumes
 - orders: órdenes de compra
 - order_items: items de cada orden
+- user_roles: rol de cada usuario (cliente o admin)
 
 ## Deploy
 
