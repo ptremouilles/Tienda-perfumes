@@ -10,15 +10,34 @@ import CarritoLateral from "./CarritoLateral"
 export default function Navbar() {
   const { totalItems, carritoAbierto, setCarritoAbierto } = useCarrito()
   const [usuario, setUsuario] = useState<any>(null)
+  const [esAdmin, setEsAdmin] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       setUsuario(session?.user ?? null)
+      if (session?.user) {
+        const { data } = await supabase
+          .from("user_roles")
+          .select("role")
+          .eq("id", session.user.id)
+          .single()
+        setEsAdmin(data?.role === "admin")
+      }
     })
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setUsuario(session?.user ?? null)
+      if (session?.user) {
+        const { data } = await supabase
+          .from("user_roles")
+          .select("role")
+          .eq("id", session.user.id)
+          .single()
+        setEsAdmin(data?.role === "admin")
+      } else {
+        setEsAdmin(false)
+      }
     })
 
     return () => subscription.unsubscribe()
@@ -39,6 +58,8 @@ export default function Navbar() {
             <li><Link href="/catalogo">Catálogo</Link></li>
             <li><Link href="/nosotros">Nosotros</Link></li>
             <li><Link href="/#contacto">Contacto</Link></li>
+            {usuario && <li><Link href="/ordenes">Órdenes</Link></li>}
+            {esAdmin && <li><Link href="/admin">Admin</Link></li>}
           </ul>
           <div className="nav-auth">
             {usuario ? (
